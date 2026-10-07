@@ -336,7 +336,7 @@ button:hover {
   min-width: 0;
 }
 
-.overview-hero-poster {
+.overview-hero-video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -1343,7 +1343,7 @@ button:hover {
     gap: 18px;
   }
 
-  .overview-hero-poster {
+  .overview-hero-video {
     max-height: 320px;
   }
 
