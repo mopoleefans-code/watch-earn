@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="" />
+    <title>Mopolee</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark">M</div>
+          <div>
+            <div class="brand-name">Mopolee</div>
+            <div class="brand-subtitle">Cinema & Exchange</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-target="#overview-panel">
+            <span>Overview</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#cinema-panel">
+            <span>Watch Films</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#exchange-panel">
+            <span>Exchange</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#wallet-panel">
+            <span>Wallet</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#rewards-panel">
+            <span>Rewards</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#tickets-panel">
+            <span>Tickets</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#profile-panel">
+            <span>My profile</span>
+            <span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-target="#settings-panel">
+            <span>Settings</span>
+            <span class="nav-dot"></span>
+          </button>
+        </nav>
+
+        <div class="upgrade-box">
+          <div class="mini-label">Mopolee Pro</div>
+          <h4>Unlock premium cinema perks</h4>
+          <p>Get priority booking, discount FX swaps, and exclusive screenings.</p>
+          <button type="button">Upgrade to Pro</button>
+          <div id="upgrade-payment-status" class="payment-status"></div>
+        </div>
+      </aside>
+
+      <main class="dashboard">
+        <div id="overview-panel" class="panel-view" data-panel>
+          <div class="topbar overview-hero">
+            <div class="overview-hero-content">
+              <div>
+                <p class="eyebrow">Welcome back</p>
+                <h1>Good evening, Ada</h1>
+                <p class="overview-hero-subtitle">Your space for great stories, smart exchanges, and free films.</p>
+              </div>
+              <div class="topbar-actions">
+                <button class="primary-btn" type="button" data-open-panel="#cinema-panel">Watch free films</button>
+                <button id="share-demo-btn" class="ghost-btn" type="button">Share Mopolee</button>
+                <button id="demo-narration-btn" class="ghost-btn" type="button" aria-pressed="false">▶ Play app narration</button>
+                <label class="narration-voice-control" for="demo-narration-voice">
+                  <span>Voice</span>
+                  <select id="demo-narration-voice" aria-describedby="demo-narration-help">
+                    <option value="">Automatic voice</option>
+                  </select>
+                </label>
+                <button class="ghost-btn" type="button">Export</button>
+                <button class="primary-btn" type="button">Add funds</button>
+              </div>
+            </div>
+            <img class="overview-hero-poster" src="static/cinema-episode-2-poster.png" alt="Mopolee presents The Man Nobody Knows, Episode 2: The Hidden Enemy, featuring a dramatic action-film collage">
+          </div>
+          <p id="share-demo-status" class="cinema-library-status" role="status" aria-live="polite"></p>
+          <p id="demo-narration-status" class="sr-only" aria-live="polite"></p>
+          <p id="demo-narration-help" class="narration-help">Narration uses voices available in your browser or device.</p>
+
+          <section class="stats-grid">
+            <article class="stat-card accent-blue">
+              <div class="stat-head">
+                <span class="label">Gross revenue</span>
+                <span class="chip positive">+18.2%</span>
+              </div>
+              <h2>₦4.8M</h2>
+              <small>vs last month</small>
+            </article>
+
+            <article class="stat-card accent-purple">
+              <div class="stat-head">
+                <span class="label">Ticket sales</span>
+                <span class="chip neutral">+8.7%</span>
+              </div>
+              <h2>24.6K</h2>
+              <small>bookings processed</small>
+            </article>
+
+            <article class="stat-card accent-green">
+              <div class="stat-head">
+                <span class="label">FX volume</span>
+                <span class="chip positive">+12.4%</span>
+              </div>
+              <h2>$84K</h2>
+              <small>monthly exchange</small>
+            </article>
+
+            <article class="stat-card accent-orange">
+              <div class="stat-head">
+                <span class="label">Active users</span>
+                <span class="chip negative">-2.1%</span>
+              </div>
+              <h2>18.3K</h2>
+              <small>engaged this week</small>
+            </article>
+          </section>
+
+          <section class="content-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Revenue performance</h3>
+                <div class="segmented-control">
+                  <button class="segment active" type="button">7D</button>
+                  <button class="segment" type="button">30D</button>
+                  <button class="segment" type="button">90D</button>
+                </div>
+              </div>
+
+              <div class="chart-area">
+                <div class="grid-lines"></div>
+                <svg viewBox="0 0 1000 260" preserveAspectRatio="none" aria-label="revenue chart">
+                  <path class="area" d="M0,190 C120,150, 180,100, 280,130 S470,180, 560,120 S760,70, 1000,80 L1000,260 L0,260 Z"></path>
+                  <path class="line" d="M0,190 C120,150, 180,100, 280,130 S470,180, 560,120 S760,70, 1000,80"></path>
+                </svg>
+                <div class="chart-labels">
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                  <span>Sat</span>
+                  <span>Sun</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Customer insight</h3>
+                <a href="#">View report</a>
+              </div>
+
+              <div class="insight-summary">
+                <div class="score-ring"><span>94%</span></div>
+                <div>
+                  <h4>Strong retention</h4>
+                  <p>Premium members are paying 34% more on average while booking cinema packages.</p>
+                </div>
+              </div>
+
+              <ul class="insight-list">
+                <li>
+                  <span class="bullet green"></span>
+                  <div>
+                    <strong>Weekend bookings</strong>
+                    <small>Up 22% compared to last week</small>
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet purple"></span>
+                  <div>
+                    <strong>FX conversion</strong>
+                    <small>Best performing in USD → NGN swaps</small>
+                  </div>
+                </li>
+                <li>
+                  <span class="bullet blue"></span>
+                  <div>
+                    <strong>Membership upgrades</strong>
+                    <small>1,420 moved to Pro this month</small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="bottom-grid">
+            <div class="panel table-panel">
+              <div class="panel-head">
+                <h3>Live campaigns</h3>
+                <a href="#">Manage</a>
+              </div>
+
+              <table>
+                <thead>
+                  <tr>
+                    <th>Campaign</th>
+                    <th>Channel</th>
+                    <th>Spend</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Weekend Movie Pass</td>
+                    <td>Affiliate</td>
+                    <td>₦620K</td>
+                    <td><span class="status live">Live</span></td>
+                  </tr>
+                  <tr>
+                    <td>FX Bonus Alert</td>
+                    <td>Email</td>
+                    <td>₦310K</td>
+                    <td><span class="status active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Premium Upgrade Push</td>
+                    <td>Push</td>
+                    <td>₦510K</td>
+                    <td><span class="status scheduled">Scheduled</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Quick actions</h3>
+              </div>
+
+              <div class="mini-list">
+                <div class="mini-item">
+                  <div class="mini-icon blue">C</div>
+                  <div>
+                    <strong>New screening</strong>
+                    <small>Create a premium movie event</small>
+                  </div>
+                </div>
+
+                <div class="mini-item">
+                  <div class="mini-icon purple">F</div>
+                  <div>
+                    <strong>FX route</strong>
+                    <small>Adjust exchange offers for market hours</small>
+                  </div>
+                </div>
+
+                <div class="mini-item">
+                  <div class="mini-icon green">W</div>
+                  <div>
+                    <strong>Wallet top-up</strong>
+                    <small>Trigger a customer payment flow</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div id="cinema-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Cinema</p>
+              <h1>Watch free films</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="ghost-btn" type="button">Browse all</button>
+              <span class="cinema-free-label">Free to watch after sign-in</span>
+            </div>
+          </div>
+
+          <section class="cinema-feature" aria-labelledby="cinema-preview-title">
+            <div class="cinema-feature-copy">
+              <p class="eyebrow">Free film demo · 30 seconds</p>
+              <h2 id="cinema-preview-title">The Man Nobody Knows</h2>
+              <p>Free to watch after signing in. This preview does not credit real wallet money or viewing rewards.</p>
+            </div>
+            <video class="cinema-preview-video" controls preload="metadata" playsinline poster="/static/cinema-theme-background.png">
+              <source src="/cinema-media/DEMO%20THE%20MAN%20NOBODY%20KNOWS.mp4" type="video/mp4">
+              Your browser does not support MP4 video playback.
+            </video>
+          </section>
+
+          <section class="cinema-library" aria-labelledby="cinema-library-title">
+            <div class="panel-head">
+              <div>
+                <p class="eyebrow">Mopolee collection</p>
+                <h2 id="cinema-library-title">Films for everyone</h2>
+              </div>
+              <p class="cinema-library-note">New films are added by the catalogue owner.</p>
+            </div>
+            <p id="cinema-library-status" class="cinema-library-status" role="status">Loading films...</p>
+            <div id="cinema-library-grid" class="feature-grid"></div>
+            <section id="cinema-admin-upload" class="cinema-admin-upload" aria-labelledby="cinema-upload-title" hidden>
+              <div>
+                <p class="eyebrow">Catalogue owner</p>
+                <h3 id="cinema-upload-title">Add a film</h3>
+                <p>Upload only films and artwork you own or have permission to distribute. Published films are visible to signed-in viewers.</p>
+              </div>
+              <form id="cinema-upload-form" class="cinema-upload-form">
+                <label>
+                  Film title
+                  <input name="title" type="text" maxlength="120" required>
+                </label>
+                <label>
+                  Short description
+                  <textarea name="description" maxlength="1000" rows="3"></textarea>
+                </label>
+                <label>
+                  MP4 film file (up to 4.5 GB)
+                  <input name="video" type="file" accept=".mp4,video/mp4" required>
+                </label>
+                <label>
+                  Poster image (optional, JPG/PNG/WebP, up to 10 MB)
+                  <input name="poster" type="file" accept="image/jpeg,image/png,image/webp">
+                </label>
+                <label class="cinema-rights-confirmation">
+                  <input name="rights_confirmed" type="checkbox" required>
+                  <span>I own this film or have permission to share it with viewers.</span>
+                </label>
+                <button class="primary-btn" type="submit">Upload and publish</button>
+                <progress id="cinema-upload-progress" max="100" value="0" hidden></progress>
+                <p id="cinema-upload-status" class="cinema-library-status" role="status"></p>
+              </form>
+            </section>
+          </section>
+
+          <div class="feature-grid"><article class='media-card' onclick="location.href='/episodes/episode1/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 1</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>A HARD LIFE</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode2/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 2</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>BETRAYED</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode3/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 3</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>ROCK BOTTOM</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode4/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 4</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>THE SECRET</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode5/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 5</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>THE TURNAROUND</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode6/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 6</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 6</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode7/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 7</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 7</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode8/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 8</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 8</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode9/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 9</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 9</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode10/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 10</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 10</small></div><span class='status active'>WATCH</span></div></article><div class="booking-panel">
+            <div class="panel-head">
+              <h3>Reserve your seat</h3>
+            </div>
+            <form id="booking-form" class="inline-form">
+              <label>
+                Movie
+                <select id="movie-select">
+                  <option>THE MAN NOBODY KNOWS</option>
+                  <option>THE MAN NOBODY KNOWS</option>
+                  <option>THE MAN NOBODY KNOWS</option>
+                </select>
+              </label>
+              <label>
+                Seat
+                <select id="seat-select">
+                  <option>A5</option>
+                  <option>B12</option>
+                  <option>C7</option>
+                  <option>D9</option>
+                </select>
+              </label>
+              <button type="submit" class="primary-btn">Reserve seat</button>
+            </form>
+            <div id="booking-status" class="payment-status"></div>
+          </div>
+
+          <div class="booking-panel">
+            <div class="panel-head">
+              <h3>Seat map</h3>
+            </div>
+            <div class="seat-map" aria-label="Seat map">
+              <div class="seat-row">
+                <button class="seat available" type="button">A1</button>
+                <button class="seat available" type="button">A2</button>
+                <button class="seat premium" type="button">A3</button>
+                <button class="seat available" type="button">A4</button>
+                <button class="seat booked" type="button" disabled>B5</button>
+              </div>
+              <div class="seat-row">
+                <button class="seat available" type="button">B1</button>
+                <button class="seat available" type="button">B2</button>
+                <button class="seat booked" type="button" disabled>B3</button>
+                <button class="seat available" type="button">B4</button>
+                <button class="seat premium" type="button">B5</button>
+              </div>
+              <div class="seat-row">
+                <button class="seat available" type="button">C1</button>
+                <button class="seat booked" type="button" disabled>C2</button>
+                <button class="seat premium" type="button">C3</button>
+                <button class="seat available" type="button">C4</button>
+                <button class="seat available" type="button">C5</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="promo-banner">
+            <div>
+              <h4>Weekend premium bundle</h4>
+              <p>2 tickets + popcorn + 10% FX cashback</p>
+            </div>
+            <button class="primary-btn" type="button">Claim bundle</button>
+          </div>
+        </div>
+
+        <div id="exchange-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Exchange</p>
+              <h1>Rate board</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="ghost-btn" type="button">History</button>
+              <button class="primary-btn" type="button">Swap now</button>
+            </div>
+          </div>
+
+          <div class="feature-grid"><article class='media-card' onclick="location.href='/episodes/episode1/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 1</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>A HARD LIFE</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode2/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 2</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>BETRAYED</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode3/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 3</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>ROCK BOTTOM</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode4/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 4</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>THE SECRET</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode5/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 5</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>THE TURNAROUND</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode6/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 6</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 6</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode7/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 7</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 7</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode8/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 8</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 8</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode9/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 9</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 9</small></div><span class='status active'>WATCH</span></div></article><article class='media-card' onclick="location.href='/episodes/episode10/index.html'" style='cursor:pointer'><div class='media-poster'><h2>Episode 10</h2></div><div class='media-meta'><div><strong>THE MAN NOBODY KNOWS</strong><small>Episode 10</small></div><span class='status active'>WATCH</span></div></article><div class="booking-panel">
+            <div class="panel-head">
+              <h3>Convert funds</h3>
+            </div>
+            <div class="fx-calculator">
+              <label>
+                Amount
+                <input id="exchange-amount" type="number" value="250" min="1" />
+              </label>
+              <label>
+                Currency
+                <select id="exchange-currency">
+                  <option value="1530">USD</option>
+                  <option value="1720">EUR</option>
+                </select>
+              </label>
+              <button id="convert-rate" class="primary-btn" type="button">Convert</button>
+            </div>
+            <div id="fx-result" class="fx-result">₦382,500.00</div>
+          </div>
+        </div>
+
+        <div id="wallet-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Wallet</p>
+              <h1>Top up & settle</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="ghost-btn" type="button">Transactions</button>
+              <button class="primary-btn" type="button">Pay with Paystack</button>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <article class="wallet-card">
+              <strong>Available balance</strong>
+              <small>Primary wallet</small>
+              <div class="wallet-list">
+                <div class="wallet-row"><span>NGN wallet</span><span class="wallet-balance">₦184,200</span></div>
+                <div class="wallet-row"><span>USD wallet</span><span class="wallet-balance">$1,260</span></div>
+              </div>
+            </article>
+
+            <article class="wallet-card">
+              <strong>Quick top-up</strong>
+              <small>Instant funding</small>
+              <div class="wallet-list">
+                <div class="wallet-row" data-topup="5000"><span>₦5,000</span><span class="wallet-balance">Top up</span></div>
+                <div class="wallet-row" data-topup="15000"><span>₦15,000</span><span class="wallet-balance">Top up</span></div>
+                <div class="wallet-row" data-topup="50000"><span>₦50,000</span><span class="wallet-balance">Top up</span></div>
+              </div>
+            </article>
+
+            <article class="wallet-card">
+              <strong>Payment status</strong>
+              <small>Secure checkout</small>
+              <div id="wallet-payment-status" class="payment-status"></div>
+              <div class="wallet-form">
+                <input id="topup-amount" type="number" min="1000" step="1000" value="5000" placeholder="Enter amount" />
+                <button id="wallet-checkout-btn" class="primary-btn" type="button">Open checkout</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="rewards-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Rewards</p>
+              <h1>Loyalty center</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="primary-btn" type="button">Redeem</button>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <article class="wallet-card">
+              <strong>Reward points</strong>
+              <small>Available now</small>
+              <div class="wallet-list">
+                <div class="wallet-row"><span>Points balance</span><span class="wallet-balance">12,480</span></div>
+                <div class="wallet-row"><span>Movie credits</span><span class="wallet-balance">4</span></div>
+              </div>
+            </article>
+
+            <article class="wallet-card">
+              <strong>Active perks</strong>
+              <small>Premium benefits</small>
+              <div class="wallet-list">
+                <div class="wallet-row"><span>Priority booking</span><span class="wallet-balance">On</span></div>
+                <div class="wallet-row"><span>FX cashback</span><span class="wallet-balance">10%</span></div>
+                <div class="wallet-row"><span>VIP lounge</span><span class="wallet-balance">Weekend</span></div>
+              </div>
+            </article>
+
+            <article class="wallet-card">
+              <strong>Redeem</strong>
+              <small>Limited offers</small>
+              <div class="wallet-list">
+                <div class="wallet-row"><span>Free popcorn</span><span class="wallet-balance">1,500</span></div>
+                <div class="wallet-row"><span>Discount FX swap</span><span class="wallet-balance">3,000</span></div>
+                <div class="wallet-row"><span>VIP upgrade</span><span class="wallet-balance">7,000</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="tickets-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Tickets</p>
+              <h1>Upcoming reservations</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="ghost-btn" type="button">All bookings</button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <table>
+              <thead>
+                <tr>
+                  <th>Movie</th>
+                  <th>Seat</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>THE MAN NOBODY KNOWS</td>
+                  <td>B12, B13</td>
+                  <td>7:30 PM</td>
+                  <td><span class="status live">Confirmed</span></td>
+                </tr>
+                <tr>
+                  <td>THE MAN NOBODY KNOWS</td>
+                  <td>A7</td>
+                  <td>6:30 PM</td>
+                  <td><span class="status active">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>THE MAN NOBODY KNOWS</td>
+                  <td>F3</td>
+                  <td>9:00 PM</td>
+                  <td><span class="status scheduled">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="profile-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Your account</p>
+              <h1>My profile</h1>
+            </div>
+            <div class="topbar-actions">
+              <button class="primary-btn" type="button" data-open-panel="#settings-panel">Profile settings</button>
+            </div>
+          </div>
+          <section class="profile-card">
+            <div class="profile-avatar" data-profile-initials aria-hidden="true">__MOPOLEE_PROFILE_INITIALS__</div>
+            <div>
+              <p class="eyebrow">Mopolee member</p>
+              <h2 data-profile-name>__MOPOLEE_PROFILE_NAME__</h2>
+              <p>Your signed-in profile keeps your account and film access together.</p>
+            </div>
+          </section>
+          <section class="profile-details" aria-label="Account details">
+            <article class="panel profile-detail"><span>Full name</span><strong data-profile-detail="name">__MOPOLEE_PROFILE_NAME__</strong></article>
+            <article class="panel profile-detail"><span>Email address</span><strong data-profile-detail="email">__MOPOLEE_PROFILE_EMAIL__</strong></article>
+            <article class="panel profile-detail"><span>Phone number</span><strong data-profile-detail="phone">__MOPOLEE_PROFILE_PHONE__</strong></article>
+            <article class="panel profile-detail"><span>Mopolee account ID</span><strong data-profile-detail="app-id">__MOPOLEE_PROFILE_APP_ID__</strong></article>
+          </section>
+          <p class="settings-note">Profile details are managed by the account owner. Password recovery is available from the sign-in screen.</p>
+        </div>
+
+        <div id="settings-panel" class="panel-view" data-panel hidden>
+          <div class="topbar">
+            <div>
+              <p class="eyebrow">Make it yours</p>
+              <h1>Settings</h1>
+            </div>
+          </div>
+          <section class="settings-section panel">
+            <div>
+              <h2>Dashboard colors</h2>
+              <p>Choose a look for this device. Your choice is saved in this browser.</p>
+            </div>
+            <div class="dashboard-theme-options" role="group" aria-label="Dashboard color theme">
+              <button type="button" class="dashboard-theme-choice" data-dashboard-theme="ocean" aria-pressed="false"><span class="theme-swatch theme-swatch-ocean"></span>Ocean blue</button>
+              <button type="button" class="dashboard-theme-choice" data-dashboard-theme="violet" aria-pressed="false"><span class="theme-swatch theme-swatch-violet"></span>Violet</button>
+              <button type="button" class="dashboard-theme-choice" data-dashboard-theme="emerald" aria-pressed="false"><span class="theme-swatch theme-swatch-emerald"></span>Emerald</button>
+              <button type="button" class="dashboard-theme-choice" data-dashboard-theme="sunset" aria-pressed="false"><span class="theme-swatch theme-swatch-sunset"></span>Sunset</button>
+            </div>
+            <p id="settings-status" class="settings-note" role="status"></p>
+          </section>
+          <section class="settings-section panel">
+            <div>
+              <h2>Voice narration</h2>
+              <p>Choose an available device voice on the Overview page, then press Play app narration. Voice options depend on your browser and device.</p>
+              <button class="ghost-btn" type="button" data-open-panel="#overview-panel">Open narration controls</button>
+            </div>
+          </section>
+          <section class="settings-section panel">
+            <div>
+              <h2>Account and privacy</h2>
+              <p>Your profile and free-film access require signing in. Do not share your password or verification code.</p>
+              <button class="ghost-btn" type="button" data-open-panel="#profile-panel">View my profile</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

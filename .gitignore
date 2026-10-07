@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+/auth_info/
+/instance/
+/__pycache__/
+/.venv/
+/node_modules/
+/promo/render-work/
+/phone-preview.png
+/Untitled-3.html
+/index.html.backup
+/index.html.backup-episodes
+*.py[cod]

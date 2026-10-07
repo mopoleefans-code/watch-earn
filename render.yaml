@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: mopolee-cinema-preview
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT whatsapp_ai_server:app
+    healthCheckPath: /healthz
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: REQUIRE_DATABASE_URL
+        value: "true"
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: PRIVATE_PREVIEW
+        value: "false"
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: CATALOG_ADMIN_EMAIL
+        sync: false
+      - key: CLOUDFLARE_R2_ACCOUNT_ID
+        sync: false
+      - key: CLOUDFLARE_R2_BUCKET
+        sync: false
+      - key: CLOUDFLARE_R2_ACCESS_KEY_ID
+        sync: false
+      - key: CLOUDFLARE_R2_SECRET_ACCESS_KEY
+        sync: false
