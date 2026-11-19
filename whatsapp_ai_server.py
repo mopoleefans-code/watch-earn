@@ -319,6 +319,14 @@ def home():
         .theme-grid {{ z-index: 2; }}
         .viewport-wrapper {{ display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; position: relative; z-index: 10; padding: 20px; box-sizing: border-box; }}
         .cockpit-card {{ position: relative; isolation: isolate; background: rgba(7, 15, 27, 0.84); border-radius: 24px; box-shadow: 0 26px 75px rgba(0,0,0,0.78), 0 0 0 1px rgba(255,255,255,0.12), 0 0 36px rgba(92,199,255,0.14); padding: 30px; width: 100%; max-width: 440px; border: 1px solid rgba(255, 183, 3, 0.78); text-align: center; box-sizing: border-box; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }}
+        #loginScreen.cockpit-card {{ background: rgba(235,245,255,0.055); border: 1px solid rgba(255,255,255,0.32); border-radius: 20px; padding: 22px; max-width: 360px; box-shadow: 0 18px 50px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.18); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }}
+        #loginScreen .brand-title {{ font-size: 17px; line-height: 1.45; letter-spacing: 1.1px; background: none; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }}
+        #loginScreen .brand-title span {{ display: inline; }}
+        #loginScreen .brand-title .mopolee {{ color: #ffbf47; }}
+        #loginScreen .brand-title .cinema {{ color: #35c9ff; }}
+        #loginScreen .brand-title .amp {{ color: #fff; }}
+        #loginScreen .brand-title .exchange {{ color: #c6a0ff; }}
+        #loginScreen .avatar-frame {{ width: 58px; height: 58px; font-size: 25px; margin-bottom: 12px; border-width: 1px; }}
         .brand-title {{ margin: 0 0 10px; font-size: clamp(28px, 7vw, 40px); line-height: 1.08; text-transform: uppercase; letter-spacing: 1.5px; background: linear-gradient(90deg, #fff4cc 0%, #ffb703 48%, #8ecae6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: 0 4px 24px rgba(255,183,3,0.2); }}
         .brand-title span {{ display: block; }}
         h1 {{ color: #ffb703; margin: 0 0 5px 0; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(255,183,3,0.4); }}
@@ -362,7 +370,7 @@ def home():
     <div class="viewport-wrapper">
         <div class="cockpit-card" id="loginScreen" style="display: {'none' if current_user else 'block'};">
             <div class="avatar-frame">👑</div>
-            <h1 class="brand-title"><span>Mopolee Cinema</span><span>&amp; Exchange</span></h1>
+            <h1 class="brand-title"><span class="mopolee">Mopolee</span> <span class="cinema">Cinema</span> <span class="amp">&amp;</span> <span class="exchange">Exchange</span></h1>
             <div class="sub-brand">YOUR CINEMA. YOUR COMMUNITY.</div>
             <div class="tab-container" style="display: {'none' if reset_screen else 'flex'};">
                 <button class="tab-btn active" onclick="switchTab('loginTab', this)">Sign In</button>
