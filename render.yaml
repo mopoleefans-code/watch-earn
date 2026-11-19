@@ -9,6 +9,8 @@ services:
     envVars:
       - key: DATABASE_URL
         sync: false
+      - key: PAYSTACK_SECRET_KEY
+        sync: false
       - key: REQUIRE_DATABASE_URL
         value: "true"
       - key: FLASK_SECRET_KEY
